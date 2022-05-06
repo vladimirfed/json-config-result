@@ -1,0 +1,58 @@
+{
+  "page-title": "Job Application Form",
+  "fields": [
+    {
+      "field_id": "english_name",
+      "field_label": "text",
+      "field_placeholder": "Enter name",
+      "field_type": "text",
+      "field_value": ""
+    },
+    {
+      "field_id": "textarea",
+      "field_label": "textarea",
+      "field_placeholder": "Enter name",
+      "field_type": "textarea",
+      "field_value": ""
+    },
+    {
+      "field_id": "number",
+      "field_label": "number",
+      "field_placeholder": "Enter name",
+      "field_type": "number",
+      "field_value": ""
+    },
+    {
+      "field_id": "employment",
+      "field_label": "Employment desired",
+      "field_value": "Part-Time",
+      "field_options": [
+        {
+          "option_label": "Full-Time"
+        },
+        {
+          "option_label": "Part-Time"
+        }
+      ],
+      "field_type": "select"
+    },
+    {
+      "field_id": "date",
+      "field_label": "date.",
+      "field_value": "",
+      "field_type": "date"
+    },
+    {
+      "field_id": "driving_license",
+      "field_label": "Checkbox.",
+      "field_type": "checkbox",
+      "field_value": true
+    },
+    {
+      "field_id": "radio",
+      "field_label": "radio.",
+      "field_type": "radio",
+      "field_value": false
+    }
+  ]
+}
