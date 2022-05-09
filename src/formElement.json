@@ -1,58 +1,62 @@
 {
-  "page-title": "Job Application Form",
-  "fields": [
+  "page_title": "Job Application Form",
+  "inputs": [
     {
-      "field_id": "english_name",
-      "field_label": "text",
-      "field_placeholder": "Enter name",
-      "field_type": "text",
-      "field_value": ""
+      "input_label": "text",
+      "input_placeholder": "placeholder for text",
+      "input_type": "text",
+      "input_value": ""
     },
     {
-      "field_id": "textarea",
-      "field_label": "textarea",
-      "field_placeholder": "Enter name",
-      "field_type": "textarea",
-      "field_value": ""
+      "input_label": "textarea",
+      "input_placeholder": "placeholder for textarea",
+      "input_type": "textarea",
+      "input_value": ""
     },
     {
-      "field_id": "number",
-      "field_label": "number",
-      "field_placeholder": "Enter name",
-      "field_type": "number",
-      "field_value": ""
+      "input_label": "number",
+      "input_placeholder": "№",
+      "input_type": "number",
+      "input_value": ""
     },
     {
-      "field_id": "employment",
-      "field_label": "Employment desired",
-      "field_value": "Part-Time",
-      "field_options": [
+      "input_label": "Select option",
+      "input_value": "",
+      "input_options": [
         {
-          "option_label": "Full-Time"
+          "option_label": "1st select"
         },
         {
-          "option_label": "Part-Time"
+          "option_label": "2nd select"
         }
       ],
-      "field_type": "select"
+      "input_type": "select"
     },
     {
-      "field_id": "date",
-      "field_label": "date.",
-      "field_value": "",
-      "field_type": "date"
+      "input_label": "date.",
+      "input_value": "",
+      "input_type": "date"
     },
     {
-      "field_id": "driving_license",
-      "field_label": "Checkbox.",
-      "field_type": "checkbox",
-      "field_value": true
+      "input_label": "Checkbox.",
+      "input_type": "checkbox",
+      "input_value": true
     },
     {
-      "field_id": "radio",
-      "field_label": "radio.",
-      "field_type": "radio",
-      "field_value": false
+      "input_label": "radio.",
+      "input_options": [
+        {
+          "option_label": "Radio 1"
+        },
+        {
+          "option_label": "Radio 2"
+        },
+        {
+          "option_label": "Radio 3"
+        }
+      ],
+      "input_type": "radio",
+      "input_value": ""
     }
   ]
 }
