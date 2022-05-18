@@ -1,12 +1,13 @@
-import { useState } from "react";
+import React, {  useState } from "react";
 
 function Config({ addTodo }) {
   const [todoInput, setTodoInput] = useState("");
 
   const handleSubmit = (e) => {
+    if(typeof JSON.parse(todoInput) === 'object'  ){
     e.preventDefault();
     addTodo(todoInput);
-    setTodoInput("");
+    setTodoInput("");}else{ alert('error')}
   };
 
   const resetInput = (e) => {
@@ -24,6 +25,8 @@ function Config({ addTodo }) {
     }
   };
 
+
+
   return (
     <div className="App container">
       <h2>Config</h2>
@@ -32,13 +35,13 @@ function Config({ addTodo }) {
         rows="10"
         value={todoInput}
         aria-label="maximum height"
-        placeholder="PlaceHolder"
-        // defaultValue="Lorem ipsum dolor."
+        placeholder="Enter your JSON file here"
+        // value="Lorem ipsum dolor."
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-      <div>
-        <button 
+            <div>
+        <button
           className="btn btn-primary"
           onClick={handleSubmit}
           variant="outlined"
@@ -55,6 +58,7 @@ function Config({ addTodo }) {
           Reset
         </button>
       </div>
+
     </div>
   );
 }
