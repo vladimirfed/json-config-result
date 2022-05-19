@@ -1,13 +1,30 @@
-import React, {  useState } from "react";
+import React, { useState, useRef } from "react";
+import ReactDOM from "react-dom";
+
+import Editor from "@monaco-editor/react";
 
 function Config({ addTodo }) {
   const [todoInput, setTodoInput] = useState("");
 
+  const editorRef = useRef(null);
+
+  function handleEditorDidMount(editor, monaco) {
+    editorRef.current = editor;
+  }
+
+  function showValue() {
+    addTodo(editorRef.current.getValue());
+    setTodoInput("");
+  }
+
   const handleSubmit = (e) => {
-    if(typeof JSON.parse(todoInput) === 'object'  ){
-    e.preventDefault();
-    addTodo(todoInput);
-    setTodoInput("");}else{ alert('error')}
+    if (typeof JSON.parse(todoInput) === "object") {
+      e.preventDefault();
+      addTodo(todoInput);
+      setTodoInput("");
+    } else {
+      alert("error");
+    }
   };
 
   const resetInput = (e) => {
@@ -25,41 +42,27 @@ function Config({ addTodo }) {
     }
   };
 
-
-
   return (
     <div className="App container">
-      <h2>Config</h2>
-      <textarea
-        className="form-control"
-        rows="10"
-        value={todoInput}
-        aria-label="maximum height"
-        placeholder="Enter your JSON file here"
-        // value="Lorem ipsum dolor."
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
+      <h2 style={{ margin: 5 }}>Config</h2>
+      <Editor
+        height="90vh"
+        defaultLanguage="javascript"
+        defaultValue="// some comment"
+        onMount={handleEditorDidMount}
       />
-            <div>
-        <button
-          className="btn btn-primary"
-          onClick={handleSubmit}
-          variant="outlined"
-          aria-label="outlined button group"
-        >
-          Apply
-        </button>
-        <button
-          className="btn btn-primary"
-          onClick={resetInput}
-          variant="outlined"
-          aria-label="outlined button group"
-        >
-          Reset
-        </button>
-      </div>
-
+      <button
+        style={{ margin: 5 }}
+        className="btn btn-primary"
+        variant="outlined"
+        aria-label="outlined button group"
+        onClick={showValue}
+      >
+        Show value
+      </button>
     </div>
+
+
   );
 }
 
