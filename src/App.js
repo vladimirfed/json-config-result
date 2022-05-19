@@ -3,6 +3,7 @@ import Result from "./components/Result";
 import Config from "./components/Config";
 import { FormContext } from "./FormContext";
 import { Routes, Route, Link } from "react-router-dom";
+import Description from "./components/Description";
 
 function App() {
   const [items, setItems] = useState(null);
@@ -40,14 +41,24 @@ function App() {
   return (
     <FormContext.Provider value={{ handleChange }}>
       <header className="App container">
+        <Link to="/">
+          <button style={{ margin: 5 }} className="btn btn-primary">
+            Description
+          </button>
+        </Link>
         <Link to="/config">
-          <button className="btn btn-primary">Config</button>
+          <button style={{ margin: 5 }} className="btn btn-primary">
+            Config
+          </button>
         </Link>
         <Link to="/result">
-          <button className="btn btn-primary">Result</button>
+          <button style={{ margin: 5 }} className="btn btn-primary">
+            Result
+          </button>
         </Link>
       </header>
       <Routes>
+        <Route path="/" element={<Description />} />
         <Route path="/config" element={<Config addTodo={addTodo} />} />
         <Route
           path="/result"
@@ -65,3 +76,4 @@ function App() {
 }
 
 export default App;
+
