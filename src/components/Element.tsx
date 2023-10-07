@@ -45,7 +45,7 @@ const Element = ({
       return (
         <Date
           input_label={input_label}
-          input_placeholder={input_placeholder}
+          // input_placeholder={input_placeholder}
           input_value={input_value}
         />
       );
@@ -53,8 +53,8 @@ const Element = ({
       return (
         <Select
           input_label={input_label}
-          input_placeholder={input_placeholder}
-          input_value={input_value}
+          // input_placeholder={input_placeholder}
+          // input_value={input_value}
           input_options={input_options}
         />
       );

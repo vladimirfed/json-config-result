@@ -44,7 +44,6 @@ function Config({ configToForm }) {
       <button
         style={{ margin: 5 }}
         className="btn btn-primary"
-        variant="outlined"
         aria-label="outlined button group"
         onClick={showValue}
       >
