@@ -1,28 +1,35 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
 
+const defultValue = ''
+
 function Config({ configToForm }) {
   const navigate = useNavigate();
-  const [jsonConfig, setJsonConfig] = useState("");
+  const [jsonConfig, setJsonConfig] = useState(defultValue);
 
   const editorRef = useRef(null);
+
+  useEffect(() => {
+    setJsonConfig(localStorage.getItem('jsonConfig') || defultValue);
+  }, []);
 
   function handleEditorDidMount(editor) {
     editorRef.current = editor;
   }
 
-  function showValue() {
-    if (isJson(editorRef.current.getValue())) {
-      configToForm(editorRef.current.getValue());
-      setJsonConfig(editorRef.current.setValue(""));
+  function showValue(): void {
+    const currentVal = editorRef.current.getValue();
+    if (isJson(currentVal)) {
+      localStorage.setItem('jsonConfig', jsonConfig);
+      configToForm(currentVal);
       navigate("/result");
     } else {
       alert("Please add JSON config");
     }
   }
 
-  function isJson(value) {
+  function isJson(value: string): boolean {
     try {
       JSON.parse(value);
     } catch (error) {
@@ -37,8 +44,8 @@ function Config({ configToForm }) {
       <Editor
         height="70vh"
         defaultLanguage="javascript"
-        // defaultValue="// some comment"
         value={jsonConfig}
+        onChange={setJsonConfig}
         onMount={handleEditorDidMount}
       />
       <button

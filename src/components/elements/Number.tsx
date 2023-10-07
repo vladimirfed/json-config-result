@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
 const Number = ({ input_label, input_placeholder, input_value }) => {
