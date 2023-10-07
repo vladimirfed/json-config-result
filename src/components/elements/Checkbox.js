@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
-const Checkbox = ({ field_id, field_label, field_value }) => {
+const Checkbox = ({ input_label, input_value }) => {
   const { handleChange } = useContext(FormContext);
 
   return (
@@ -9,11 +9,11 @@ const Checkbox = ({ field_id, field_label, field_value }) => {
       <input
         type="checkbox"
         className="form-check-input"
-        checked={field_value}
-        onChange={(event) => handleChange(field_id, event)}
+        checked={input_value}
+        onChange={(event) => handleChange(input_label, event)}
       />
       <label className="form-check-label" htmlFor="exampleCheck1">
-        {field_label}
+        {input_label}
       </label>
     </div>
   );

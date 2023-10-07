@@ -1,54 +1,44 @@
 import React, { useState, useRef } from "react";
-import ReactDOM from "react-dom";
-
+import { useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
 
-function Config({ addTodo }) {
-  const [todoInput, setTodoInput] = useState("");
+function Config({ configToForm }) {
+  const navigate = useNavigate();
+  const [jsonConfig, setJsonConfig] = useState("");
 
   const editorRef = useRef(null);
 
-  function handleEditorDidMount(editor, monaco) {
+  function handleEditorDidMount(editor) {
     editorRef.current = editor;
   }
 
   function showValue() {
-    addTodo(editorRef.current.getValue());
-    setTodoInput("");
+    if (isJson(editorRef.current.getValue())) {
+      configToForm(editorRef.current.getValue());
+      setJsonConfig(editorRef.current.setValue(""));
+      navigate("/result");
+    } else {
+      alert("Please add JSON config");
+    }
   }
 
-  const handleSubmit = (e) => {
-    if (typeof JSON.parse(todoInput) === "object") {
-      e.preventDefault();
-      addTodo(todoInput);
-      setTodoInput("");
-    } else {
-      alert("error");
+  function isJson(value) {
+    try {
+      JSON.parse(value);
+    } catch (error) {
+      return false;
     }
-  };
-
-  const resetInput = (e) => {
-    e.preventDefault();
-    setTodoInput("");
-  };
-
-  const handleChange = (e) => {
-    setTodoInput(e.target.value);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      handleSubmit(e);
-    }
-  };
+    return true;
+  }
 
   return (
     <div className="App container">
       <h2 style={{ margin: 5 }}>Config</h2>
       <Editor
-        height="90vh"
+        height="70vh"
         defaultLanguage="javascript"
-        defaultValue="// some comment"
+        // defaultValue="// some comment"
+        value={jsonConfig}
         onMount={handleEditorDidMount}
       />
       <button
@@ -61,8 +51,6 @@ function Config({ addTodo }) {
         Show value
       </button>
     </div>
-
-
   );
 }
 

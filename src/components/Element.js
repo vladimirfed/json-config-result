@@ -8,78 +8,66 @@ import RadioB from "./elements/RadioB";
 import Select from "./elements/Select";
 
 const Element = ({
-  field: {
-    field_type,
-    field_id,
-    field_label,
-    field_placeholder,
-    field_value,
-    field_options
+  input: {
+    input_type,
+    input_label,
+    input_placeholder,
+    input_value,
+    input_options
   }
 }) => {
-  switch (field_type) {
+  switch (input_type) {
     case "text":
       return (
         <Input
-          field_id={field_id}
-          field_label={field_label}
-          field_placeholder={field_placeholder}
-          field_value={field_value}
+          input_label={input_label}
+          input_placeholder={input_placeholder}
+          input_value={input_value}
         />
       );
-      case "number":
-        return (
-          <Number
-            field_id={field_id}
-            field_label={field_label}
-            field_placeholder={field_placeholder}
-            field_value={field_value}
-          />
-        );
-        case "textarea":
-            return (
-              <Textarea
-                field_id={field_id}
-                field_label={field_label}
-                field_placeholder={field_placeholder}
-                field_value={field_value}
-              />
-            );
-            case "date":
-                return (
-                  <Date
-                    field_id={field_id}
-                    field_label={field_label}
-                    field_placeholder={field_placeholder}
-                    field_value={field_value}
-                  />
-                );
+    case "number":
+      return (
+        <Number
+          input_label={input_label}
+          input_placeholder={input_placeholder}
+          input_value={input_value}
+        />
+      );
+    case "textarea":
+      return (
+        <Textarea
+          input_label={input_label}
+          input_placeholder={input_placeholder}
+          input_value={input_value}
+        />
+      );
+    case "date":
+      return (
+        <Date
+          input_label={input_label}
+          input_placeholder={input_placeholder}
+          input_value={input_value}
+        />
+      );
     case "select":
       return (
         <Select
-          field_id={field_id}
-          field_label={field_label}
-          field_placeholder={field_placeholder}
-          field_value={field_value}
-          field_options={field_options}
+          input_label={input_label}
+          input_placeholder={input_placeholder}
+          input_value={input_value}
+          input_options={input_options}
         />
       );
     case "checkbox":
+      return <Checkbox input_label={input_label} input_value={input_value} />;
+    case "radio":
       return (
-        <Checkbox
-          field_id={field_id}
-          field_label={field_label}
-          field_value={field_value}
+        <RadioB
+          input_label={input_label}
+          input_value={input_value}
+          input_options={input_options}
         />
       );
-      case "radio":
-        return (
-          <RadioB
-            field_id={field_id}
-            field_label={field_label}
-            field_value={field_value}
-          />
-        );
 
     default:
       return null;
@@ -87,5 +75,3 @@ const Element = ({
 };
 
 export default Element;
-
-

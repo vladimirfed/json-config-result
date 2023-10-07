@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
-const Input = ({ field_id, field_label, field_placeholder, field_value }) => {
+const Input = ({ input_label, input_placeholder, input_value }) => {
   const { handleChange } = useContext(FormContext);
+
+  let id = Math.random();
 
   return (
     <div className="mb-3">
-      <label className="form-label">{field_label}</label>
+      <label className="form-label">{input_label}</label>
       <input
+        id={id}
         type="text"
         className="form-control"
-        placeholder={field_placeholder ? field_placeholder : ""}
-        value={field_value}
-        onChange={(event) => handleChange(field_id, event)}
+        placeholder={input_placeholder ? input_placeholder : ""}
+        value={input_value}
+        onChange={(event) => handleChange(input_label, event)}
       />
-      <div id="emailHelp" className="form-text">
-        string.
-      </div>
     </div>
   );
 };

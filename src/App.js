@@ -6,22 +6,21 @@ import { Routes, Route, Link } from "react-router-dom";
 import Description from "./components/Description";
 
 function App() {
-  const [items, setItems] = useState(null);
+  const [form, setForm] = useState(null);
 
-  const addTodo = (todoInput) => {
-    let res = JSON.parse(todoInput);
-    setItems(res);
+  const configToForm = (JSONconfig) => {
+    JSONconfig && setForm(JSON.parse(JSONconfig));
   };
 
-  const { inputs, page_title } = items ?? {};
+  const { inputs, page_title } = form ?? {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(items);
+    console.log(form);
   };
 
   const handleChange = (label, e) => {
-    const newitems = { ...items };
+    const newitems = { ...form };
     newitems.inputs.forEach((input) => {
       const { input_type, input_label } = input;
       if (label === input_label) {
@@ -34,7 +33,7 @@ function App() {
             break;
         }
       }
-      setItems(newitems);
+      setForm(newitems);
     });
   };
 
@@ -59,7 +58,10 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Description />} />
-        <Route path="/config" element={<Config addTodo={addTodo} />} />
+        <Route
+          path="/config"
+          element={<Config configToForm={configToForm} />}
+        />
         <Route
           path="/result"
           element={
@@ -76,4 +78,3 @@ function App() {
 }
 
 export default App;
-

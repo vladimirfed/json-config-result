@@ -1,13 +1,13 @@
 import Element from "./Element";
 
-function Result({ fields, page_title, handleSubmit }) {
+function Result({ inputs, page_title, handleSubmit }) {
   return (
     <div className="App container">
       <h2>Result</h2>
       <h3>{page_title}</h3>
       <form>
-        {fields
-          ? fields.map((field, i) => <Element key={i} field={field} />)
+        {inputs
+          ? inputs.map((input, i) => <Element key={i} input={input} />)
           : null}
         <button
           type="submit"
