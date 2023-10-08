@@ -1,3 +1,4 @@
+import { InputElement } from "../Interfaces";
 import Element from "./Element";
 
 function Result({ inputs, page_title, handleSubmit }) {

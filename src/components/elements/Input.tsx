@@ -4,7 +4,7 @@ import { FormContext } from "../../FormContext";
 const Input = ({ input_label, input_placeholder, input_value }) => {
   const { handleChange } = useContext(FormContext);
 
-  let id = Math.random().toString();
+  let id = Date.now().toString();
 
   return (
     <div className="mb-3">

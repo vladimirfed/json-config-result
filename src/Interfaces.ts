@@ -3,7 +3,7 @@ export interface JsonConfig {
   inputs: InputElement[];
 }
 
-type InputElement =
+export type InputElement =
   | TextInput
   | TextareaInput
   | NumberInput
@@ -12,7 +12,7 @@ type InputElement =
   | CheckboxInput
   | RadioInput;
 
-type InputType =
+export type InputType =
   | "text"
   | "textarea"
   | "number"
@@ -66,32 +66,4 @@ interface RadioInput {
   input_options: { option_label: string }[];
   input_type: "radio";
   input_value: string;
-}
-
-export function isJsonConfig(value: any): value is JsonConfig {
-  if (isJson(value)) {
-    const config = JSON.parse(value);
-    return (
-      "page_title" in config &&
-      "inputs" in config &&
-      isInputElement(config.inputs)
-    );
-  }
-  return false;
-}
-
-function isInputElement(inputs: any[]): inputs is InputElement[] {
-  return (
-    inputs.filter((el) => "input_type" in el && "input_value" in el).length ===
-    inputs.length
-  );
-}
-
-function isJson(value: string): boolean {
-  try {
-    JSON.parse(value);
-  } catch (error) {
-    return false;
-  }
-  return true;
 }
