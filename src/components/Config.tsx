@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
+import { isJsonConfig } from "../Interfaces";
 
 const defultValue = ''
 
@@ -20,22 +21,13 @@ function Config({ configToForm }) {
 
   function showValue(): void {
     const currentVal = editorRef.current.getValue();
-    if (isJson(currentVal)) {
+    if (isJsonConfig(currentVal)) {
       localStorage.setItem('jsonConfig', jsonConfig);
       configToForm(currentVal);
       navigate("/result");
     } else {
-      alert("Please add JSON config");
+      alert("Please add valid JSON config");
     }
-  }
-
-  function isJson(value: string): boolean {
-    try {
-      JSON.parse(value);
-    } catch (error) {
-      return false;
-    }
-    return true;
   }
 
   return (
