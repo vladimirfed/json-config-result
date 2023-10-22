@@ -20,10 +20,7 @@ function Config({ configToForm }) {
   }
 
   function showValue(): void {
-    if (!isJsonConfig(jsonConfig)) {
-      alert("Please add valid JSON config");
-      return;
-    }
+    if (!isJsonConfig(jsonConfig)) return
   
     localStorage.setItem("jsonConfig", jsonConfig);
     configToForm(JSON.parse(jsonConfig));
