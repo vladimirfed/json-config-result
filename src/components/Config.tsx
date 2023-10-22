@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
-import { isJson, isJsonConfig } from "../Validation";
+import { isJsonConfig } from "../Validation";
 
 const defultValue = "";
 
 function Config({ configToForm }) {
   const navigate = useNavigate();
-  const [jsonConfig, setJsonConfig] = useState(defultValue);
+  const [jsonConfig, setJsonConfig] = useState<string>(defultValue);
 
   const editorRef = useRef(null);
 
@@ -20,17 +20,14 @@ function Config({ configToForm }) {
   }
 
   function showValue(): void {
-    if (isJson(jsonConfig)) {
-      if (isJsonConfig(jsonConfig)) {
-        localStorage.setItem("jsonConfig", jsonConfig);
-        configToForm(JSON.parse(jsonConfig));
-        navigate("/result");
-      } else {
-        alert("Please add valid JSON config");
-      }
-    } else {
-      alert("Your Config is not in JSON format");
+    if (!isJsonConfig(jsonConfig)) {
+      alert("Please add valid JSON config");
+      return;
     }
+  
+    localStorage.setItem("jsonConfig", jsonConfig);
+    configToForm(JSON.parse(jsonConfig));
+    navigate("/result");
   }
 
   return (

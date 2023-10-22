@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import Result from "./components/Result";
 import Config from "./components/Config";
 import { FormContext } from "./FormContext";
@@ -15,13 +15,12 @@ function App() {
 
   const { inputs, page_title } = form ?? {};
 
-  const handleSubmit = (e: React.MouseEvent): void => {
+  const handleSubmit = (e: MouseEvent): void => {
     e.preventDefault();
     console.log(form);
   };
 
   const handleChange = (label, e): void => {
-    console.log("handleChange", label, e);
     const newitems = { ...form };
     newitems.inputs.forEach((input: InputElement) => {
       const { input_type, input_label } = input;

@@ -13,36 +13,27 @@ function Description() {
   return (
     <div className="App container">
       <h1>Create Dynamic Forms from JSON</h1>
-      
+
+      {/* Introduction */}
       <p>
-        This app lets you create dynamic forms from JSON. You can use this app
-        to design and customize your own forms without writing any code.
+        This app allows you to create dynamic forms from JSON without writing any code. Customize your own forms easily.
       </p>
 
+      {/* Config Section */}
       <p>
-        In the <strong>Config</strong> section, you can enter a JSON template
-        that defines the structure and properties of your form. You can use
-        various types of form elements, such as text, number, date, checkbox,
-        radio, select, and more. You can also specify labels, placeholders, and
-        options for each element.
+        In the <strong>Config</strong> section, enter a JSON template defining the form's structure and properties. You can use various form elements such as text, number, date, checkbox, radio, select, and more. Specify labels, placeholders, and options for each element.
       </p>
 
       <strong>Requirements:</strong>
       <ul>
-        <li>Json properties should be doublequoted</li>
-        <li>
-          Json has to be following format: <code>{jsonFormat}</code>
-        </li>
-        <li>
-          You can find a JSON template example in <code>formElement.json</code>.
-        </li>
+        <li>JSON properties should be double-quoted.</li>
+        <li>JSON format should match the following: <code>{jsonFormat}</code></li>
+        <li>Refer to a JSON template example in <code>formElement.json</code>.</li>
       </ul>
 
+      {/* Result Section */}
       <p>
-        In the <strong>Result</strong> section, you can see the dynamically
-        created form based on your JSON template. You can fill out the form and
-        submit it to see the output data in <code>console</code>. You can also
-        edit the JSON template and see the changes in the form instantly.
+        In the <strong>Result</strong> section, view the dynamically created form based on your JSON template. Fill out the form, submit it, and see the output data in the console. Edit the JSON template to see instant changes in the form.
       </p>
     </div>
   );
