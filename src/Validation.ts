@@ -3,20 +3,15 @@ import { JsonConfig, InputElement } from "./Interfaces";
 export function isJsonConfig(value: any): value is JsonConfig {
   try {
     const config = JSON.parse(value);
-
     if (!hasTitleAndInputs(config)) return false
-
     const { inputs } = config;
-
     for (const input of inputs) {
       if (!checkInput(input)) return false;
     }
-
     return true;
   } catch (error) {
     alert("Your Config is not in JSON format. Error parsing JSON config: " + error);
   }
-
   return false;
 }
 
@@ -25,7 +20,6 @@ function hasTitleAndInputs(config: JsonConfig) {
     const missingFields = [];
     if (!("page_title" in config)) missingFields.push("page_title");
     if (!("inputs" in config)) missingFields.push("inputs");
-
     alert(`Invalid input format: Missing ${missingFields.join(", ")}`);
     return false;
   }
