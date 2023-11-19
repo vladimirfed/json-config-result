@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# From JSON to Forms
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Make sure you have the following software installed on your machine:
 
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-you can have a look on a preview here https://codesandbox.io/s/json-config-form-6l1mf5
+### Installation
+
+1. Clone the repository: `git clone https://github.com/vladimirfed/json-config-result.git`
+   
+2. Navigate to the project directory: `cd json-config-result`
+
+3. Install dependencies: `npm install`
+
+### Usage
+
+To run the project locally: `npm start`

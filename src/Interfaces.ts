@@ -12,58 +12,51 @@ export type InputElement =
   | CheckboxInput
   | RadioInput;
 
-export type InputType =
-  | "text"
-  | "textarea"
-  | "number"
-  | "select"
-  | "date"
-  | "checkbox"
-  | "radio";
-
-interface TextInput {
-  input_label?: string;
-  input_placeholder?: string;
-  input_type: "text";
-  input_value: string;
+export enum InputType {
+  Text = "text",
+  Textarea = "textarea",
+  Number = "number",
+  Select = "select",
+  Date = "date",
+  Checkbox = "checkbox",
+  Radio = "radio",
 }
 
-interface TextareaInput {
+export interface BaseInput {
   input_label?: string;
-  input_placeholder?: string;
-  input_type: "textarea";
   input_value: string;
+  input_type: InputType;
 }
 
-interface NumberInput {
-  input_label?: string;
+interface TextInput extends BaseInput {
+  input_type: InputType.Text;
   input_placeholder?: string;
-  input_type: "number";
-  input_value: string;
 }
 
-interface SelectInput {
-  input_label?: string;
-  input_type: "select";
-  input_value: string;
+export interface TextareaInput extends BaseInput {
+  input_placeholder?: string;
+  input_type: InputType.Textarea;
+}
+
+export interface NumberInput extends BaseInput {
+  input_placeholder?: string;
+  input_type: InputType.Number;
+}
+
+interface SelectInput extends BaseInput {
+  input_type: InputType.Select;
   input_options: { option_label: string }[];
 }
 
-interface DateInput {
-  input_label?: string;
-  input_type: "date";
-  input_value: string;
+interface DateInput extends BaseInput {
+  input_type: InputType.Date;
 }
 
-interface CheckboxInput {
-  input_label?: string;
-  input_type: "checkbox";
-  input_value: boolean;
+interface CheckboxInput extends BaseInput {
+  input_type: InputType.Checkbox;
 }
 
-interface RadioInput {
-  input_label?: string;
+interface RadioInput extends BaseInput {
   input_options: { option_label: string }[];
-  input_type: "radio";
-  input_value: string;
+  input_type: InputType.Radio;
 }

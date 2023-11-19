@@ -17,7 +17,7 @@ function App() {
 
   const handleSubmit = (e: MouseEvent): void => {
     e.preventDefault();
-    console.log(form);
+    form && console.log(form);
   };
 
   const handleChange = (label, e): void => {

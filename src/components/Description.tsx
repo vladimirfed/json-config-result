@@ -33,7 +33,7 @@ function Description() {
 
       {/* Result Section */}
       <p>
-        In the <strong>Result</strong> section, view the dynamically created form based on your JSON template. Fill out the form, submit it, and see the output data in the console. Edit the JSON template to see instant changes in the form.
+      In the <strong>Result</strong> section, view the dynamically created form based on your JSON template. Fill out the form, submit it, and see the output data in the console. Edit the JSON template to see instant changes in the form after resubmit.
       </p>
     </div>
   );
