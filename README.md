@@ -16,3 +16,7 @@ Make sure you have the following software installed on your machine:
 ### Usage
 
 To run the project locally: `npm start`
+
+### View
+
+You try the app at https://codesandbox.io/p/github/vladimirfed/json-config-result
