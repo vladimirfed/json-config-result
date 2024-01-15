@@ -12,7 +12,7 @@ export type InputElement =
   | CheckboxInput
   | RadioInput;
 
-export enum InputType {
+export const enum InputType {
   Text = "text",
   Textarea = "textarea",
   Number = "number",

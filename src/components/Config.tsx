@@ -2,10 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
 import { isJsonConfig } from "../Validation";
+import { Pages } from "../App";
 
 const defultValue = "";
 
-function Config({ configToForm }) {
+function Config({ configToForm, handleSectionChange }) {
   const navigate = useNavigate();
   const [jsonConfig, setJsonConfig] = useState<string>(defultValue);
 
@@ -24,21 +25,21 @@ function Config({ configToForm }) {
   
     localStorage.setItem("jsonConfig", jsonConfig);
     configToForm(JSON.parse(jsonConfig));
+    handleSectionChange(Pages.Result);
     navigate("/result");
   }
 
   return (
     <div className="App container">
-      <h2 style={{ margin: 5 }}>Config</h2>
       <Editor
-        height="70vh"
+        height="80vh"
         defaultLanguage="javascript"
         value={jsonConfig}
         onChange={setJsonConfig}
         onMount={handleEditorDidMount}
       />
       <button
-        style={{ margin: 5 }}
+        style={{ marginTop: 10 }}
         className="btn btn-primary"
         aria-label="outlined button group"
         onClick={showValue}
