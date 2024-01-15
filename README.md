@@ -19,4 +19,4 @@ To run the project locally: `npm start`
 
 ### View
 
-You try the app at https://codesandbox.io/p/github/vladimirfed/json-config-result
+Try the app at https://codesandbox.io/p/github/vladimirfed/json-config-result
