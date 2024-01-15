@@ -1,4 +1,3 @@
-import { InputElement } from "../Interfaces";
 import Element from "./Element";
 
 function Result({ inputs, page_title, handleSubmit }) {
@@ -8,9 +7,10 @@ function Result({ inputs, page_title, handleSubmit }) {
       <form>
         {inputs
           ? inputs.map((input, i) => <Element key={i} input={input} />)
-          : null}
+          : <span>Please enter a JSON in the Config section first</span>}
+          <br />
         <button 
-          style={{ marginTop: 10 }}
+          style={{ marginBottom: 10 }}
           type="submit"
           className="btn btn-primary"
           onClick={(e) => handleSubmit(e)}
