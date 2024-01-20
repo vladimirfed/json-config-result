@@ -5,7 +5,7 @@ function Result({ inputs, page_title, handleSubmit }) {
     <div className="App container">
       <h3>{page_title}</h3>
       <form>
-        {inputs
+        {Object.keys(inputs).length
           ? inputs.map((input, i) => <Element key={i} input={input} />)
           : <span>Please enter a JSON in the Config section first</span>}
           <br />
