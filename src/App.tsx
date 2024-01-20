@@ -13,7 +13,7 @@ export const enum Pages {
 }
 
 function App() {
-  const [form, setForm] = useState(null);
+  const [form, setForm] = useState<JsonConfig | null>(null);
   const [currentSection, setCurrentSection] = useState("description");
 
 const handleSectionChange = (section: Pages): void => {
@@ -24,16 +24,19 @@ const handleSectionChange = (section: Pages): void => {
     setForm(JSONconfig);
   };
 
-  const { inputs, page_title } = form ?? {};
+  const { inputs, page_title } = form || {
+    inputs: {},
+    page_title: '',
+  };
 
   const handleSubmit = (e: MouseEvent): void => {
     e.preventDefault();
     form && console.log(form);
   };
 
-  const handleChange = (label, e): void => {
-    const newitems = { ...form };
-    newitems.inputs.forEach((input: InputElement) => {
+  const handleChange = (label, e: React.ChangeEvent<HTMLInputElement>): void => {
+    const newitems = form && { ...form  };
+    newitems?.inputs.forEach((input: InputElement) => {
       const { input_type, input_label } = input;
       if (label === input_label) {
         switch (input_type) {

@@ -52,8 +52,9 @@ interface DateInput extends BaseInput {
   input_type: InputType.Date;
 }
 
-interface CheckboxInput extends BaseInput {
+export interface CheckboxInput extends Omit<BaseInput, 'input_value'> {
   input_type: InputType.Checkbox;
+  input_value: boolean;
 }
 
 interface RadioInput extends BaseInput {
