@@ -6,7 +6,7 @@ import { Pages } from "../App";
 
 const defultValue = "";
 
-function Config({ configToForm, handleSectionChange }) {
+function Config({ configToForm, handleSectionChange }): JSX.Element {
   const navigate = useNavigate();
   const [jsonConfig, setJsonConfig] = useState<string>(defultValue);
 
@@ -21,8 +21,8 @@ function Config({ configToForm, handleSectionChange }) {
   }
 
   function showValue(): void {
-    if (!isJsonConfig(jsonConfig)) return
-  
+    if (!isJsonConfig(jsonConfig)) return;
+
     localStorage.setItem("jsonConfig", jsonConfig);
     configToForm(JSON.parse(jsonConfig));
     handleSectionChange(Pages.Result);
@@ -35,7 +35,7 @@ function Config({ configToForm, handleSectionChange }) {
         height="80vh"
         defaultLanguage="javascript"
         value={jsonConfig}
-        onChange={setJsonConfig}
+        onChange={(string: string) => setJsonConfig(string)}
         onMount={handleEditorDidMount}
       />
       <button

@@ -17,7 +17,7 @@ export function isJsonConfig(value: any): value is JsonConfig {
 
 function hasTitleAndInputs(config: JsonConfig) {
   if (!("page_title" in config) || !("inputs" in config)) {
-    const missingFields = [];
+    const missingFields: string[] = [];
     if (!("page_title" in config)) missingFields.push("page_title");
     if (!("inputs" in config)) missingFields.push("inputs");
     alert(`Invalid input format: Missing ${missingFields.join(", ")}`);

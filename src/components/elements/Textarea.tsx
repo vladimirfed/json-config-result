@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
-const Textarea = ({ input_label, input_placeholder, input_value }) => {
+const Textarea = ({ input_label, input_placeholder, input_value }): JSX.Element => {
   const { handleChange } = useContext(FormContext);
   return (
     <div className="mb-3">

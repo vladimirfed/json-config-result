@@ -12,7 +12,7 @@ export const enum Pages {
   Result = "result",
 }
 
-function App() {
+function App(): JSX.Element {
   const [form, setForm] = useState<JsonConfig | null>(null);
   const [currentSection, setCurrentSection] = useState("description");
 
@@ -25,7 +25,7 @@ const handleSectionChange = (section: Pages): void => {
   };
 
   const { inputs, page_title } = form || {
-    inputs: {},
+    inputs: [],
     page_title: '',
   };
 

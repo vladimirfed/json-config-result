@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
-const RadioB = ({ input_label, input_value, input_options }) => {
+const RadioB = ({ input_label, input_options }): JSX.Element => {
   const { handleChange } = useContext(FormContext);
 
   return (

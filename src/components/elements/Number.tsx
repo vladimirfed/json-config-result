@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
-const Number = ({ input_label, input_placeholder, input_value }) => {
+const Number = ({ input_label, input_placeholder, input_value }): JSX.Element => {
   const { handleChange } = useContext(FormContext);
 
   return (

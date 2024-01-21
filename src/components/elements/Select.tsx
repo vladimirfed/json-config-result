@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FormContext } from "../../FormContext";
 
-const Select = ({ input_label, input_options }) => {
+const Select = ({ input_label, input_options }): JSX.Element => {
   const { handleChange } = useContext(FormContext);
 
   return (
